@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sombik_Rombik</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #080b0e;
+            --bg-card: #0f0d18;
+            --bg-elevated: #1a1530;
+            --border-color: #2a2440;
+            --text-primary: #e0d8f0;
+            --text-secondary: #a898c8;
+            --text-dim: #6a5a88;
+            --rust: #d4813a;
+            --orange: #d4813a;
+            --orange-glow: rgba(212, 129, 58, 0.15);
+            --purple: #ab8bff;
+            --purple-glow: rgba(171, 139, 255, 0.12);
+            --blood: #c0392b;
+            --gold: #d4a373;
+            --cyan: #3bc5d9;
+            --radius: 28px;
+            --transition: 0.3s ease;
+        }
+
+        body {
+            background: var(--bg-primary);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 2rem 1.5rem;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 30% 30%, rgba(171, 139, 255, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(212, 129, 58, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(171, 139, 255, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseBg 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { opacity: 0.6; }
+            100% { opacity: 1; }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .card {
+            background: var(--bg-card);
+            backdrop-filter: blur(4px);
+            border-radius: var(--radius);
+            padding: 3rem 3.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), inset 0 1px 0 rgba(255,255,255,0.03);
+            max-width: 580px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--orange), var(--purple), var(--orange), transparent);
+            opacity: 0.6;
+            border-radius: var(--radius) var(--radius) 0 0;
+        }
+
+        .card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: var(--radius);
+            padding: 1px;
+            background: conic-gradient(from 0deg, transparent, var(--orange), var(--purple), transparent);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.1;
+            transition: opacity 0.6s ease;
+        }
+
+        .card:hover::after {
+            opacity: 0.3;
+        }
+
+        .card:hover {
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.9), 0 0 40px rgba(171, 139, 255, 0.04), 0 0 40px rgba(212, 129, 58, 0.04);
+            transform: scale(1.005);
+        }
+
+        .nick {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -2px;
+            background: linear-gradient(135deg, var(--purple), #c08aff, var(--orange), var(--rust));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 0.35rem;
+            word-break: break-word;
+            font-family: 'Inter', sans-serif;
+            animation: gradientShift 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .bio {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            letter-spacing: 0.2px;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.8rem;
+            line-height: 1.7;
+        }
+
+        .bio .highlight-purple {
+            color: var(--purple);
+            font-weight: 500;
+        }
+
+        .bio .highlight-orange {
+            color: var(--orange);
+            font-weight: 500;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--orange);
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-top: 1.2rem;
+            margin-bottom: 0.6rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-title::before {
+            content: "▸";
+            color: var(--purple);
+            font-size: 1.4rem;
+        }
+
+        /* ПРОЕКТ — ТЕПЕРЬ КЛИКАБЕЛЬНЫЙ */
+        .project-item {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            background: rgba(212, 129, 58, 0.05);
+            padding: 0.6rem 1rem;
+            border-radius: 16px;
+            border-left: 3px solid var(--orange);
+            margin-left: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .project-item:hover {
+            background: rgba(171, 139, 255, 0.12);
+            border-left-color: var(--purple);
+            transform: translateX(6px) scale(1.01);
+            box-shadow: 0 0 40px rgba(171, 139, 255, 0.06);
+        }
+
+        .project-item:active {
+            transform: scale(0.97);
+        }
+
+        .project-item .num {
+            color: var(--orange);
+            transition: var(--transition);
+        }
+
+        .project-item:hover .num {
+            color: var(--purple);
+        }
+
+        .project-item small {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+
+        .project-item .tag {
+            font-size: 0.55rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: rgba(171, 139, 255, 0.12);
+            color: var(--purple);
+            padding: 2px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(171, 139, 255, 0.08);
+            transition: var(--transition);
+        }
+
+        .project-item:hover .tag {
+            background: rgba(212, 129, 58, 0.12);
+            color: var(--orange);
+            border-color: rgba(212, 129, 58, 0.15);
+        }
+
+        .contact {
+            margin-top: 2rem;
+            padding-top: 0.8rem;
+            border-top: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .contact .email-label {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--text-dim);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact .email-label::before {
+            content: "✉️";
+            font-size: 0.9rem;
+        }
+
+        .contact a {
+            color: var(--purple);
+            text-decoration: none;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            background: rgba(171, 139, 255, 0.05);
+            padding: 8px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(171, 139, 255, 0.12);
+            transition: var(--transition);
+            letter-spacing: 0.2px;
+            position: relative;
+        }
+
+        .contact a:hover {
+            background: rgba(212, 129, 58, 0.1);
+            border-color: var(--orange);
+            box-shadow: 0 0 30px rgba(212, 129, 58, 0.06);
+            color: var(--orange);
+            transform: translateY(-2px);
+        }
+
+        /* ПОДСКАЗКА */
+        .hint {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 1.2rem;
+            letter-spacing: 0.5px;
+            opacity: 0.5;
+            transition: var(--transition);
+        }
+
+        .hint:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 480px) {
+            .card { padding: 2rem 1.5rem; }
+            .nick { font-size: 2.6rem; }
+            .project-item { font-size: 1.2rem; flex-wrap: wrap; gap: 6px; }
+            .bio { font-size: 0.95rem; }
+            .contact { flex-direction: column; align-items: stretch; text-align: center; }
+            .contact a { text-align: center; }
+        }
+
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--bg-primary); }
+        ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--purple); }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="nick">Sombik_Rombik</div>
+
+    <div class="bio">
+        Привет, если ты это читаешь, то ты наверное решил узнать обо мне побольше. Ну так вот: в основном я сижу дома и играю в <span class="highlight-purple">Geometry Dash</span> и редко в <span class="highlight-orange">Terraria</span>, ну или делаю какой-нибудь уровень в <span class="highlight-purple">Backrooms</span>. Сейчас мне <span class="highlight-orange">13 лет</span>, и на данный момент мой самый лучший проект — это <span class="highlight-purple">Серая Гладь 809</span>.
+    </div>
+
+    <div class="section-title">Мои творения</div>
+
+    <!-- КЛИКАБЕЛЬНАЯ ССЫЛКА НА LEVEL 809 -->
+    <a href="https://sombik.github.io/Level-809/" class="project-item" target="_blank">
+        <span class="num">809</span>
+        <small>Серая Гладь</small>
+        <span class="tag">★ флагман</span>
+    </a>
+
+    <div class="contact">
+        <span class="email-label">почта</span>
+        <a href="mailto:sombik809@gmail.com">sombik809@gmail.com</a>
+    </div>
+
+    
+
+</div>
+
+</body>
+</html>
