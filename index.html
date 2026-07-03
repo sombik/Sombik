@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sombik_Rombik</title>
+    <title>Sombik_Rombik — создатель Серой Глади</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* ВСЕ СТИЛИ ОСТАЮТСЯ ТАКИМИ ЖЕ, КАК У ТЕБЯ */
         * {
             margin: 0;
             padding: 0;
@@ -183,7 +184,6 @@
             font-size: 1.4rem;
         }
 
-        /* ПРОЕКТ — ТЕПЕРЬ КЛИКАБЕЛЬНЫЙ */
         .project-item {
             font-size: 1.6rem;
             font-weight: 700;
@@ -248,6 +248,37 @@
             border-color: rgba(212, 129, 58, 0.15);
         }
 
+        /* НОВАЯ ССЫЛКА НА -809 — зеркальный уровень */
+        .project-item.mirror {
+            border-left-color: var(--purple);
+            background: rgba(171, 139, 255, 0.04);
+        }
+
+        .project-item.mirror:hover {
+            border-left-color: var(--orange);
+            background: rgba(212, 129, 58, 0.08);
+        }
+
+        .project-item.mirror .num {
+            color: var(--purple);
+        }
+
+        .project-item.mirror:hover .num {
+            color: var(--orange);
+        }
+
+        .project-item.mirror .tag {
+            background: rgba(192, 57, 43, 0.12);
+            color: var(--blood);
+            border-color: rgba(192, 57, 43, 0.08);
+        }
+
+        .project-item.mirror:hover .tag {
+            background: rgba(192, 57, 43, 0.15);
+            color: var(--blood);
+            border-color: rgba(192, 57, 43, 0.15);
+        }
+
         .contact {
             margin-top: 2rem;
             padding-top: 0.8rem;
@@ -297,7 +328,6 @@
             transform: translateY(-2px);
         }
 
-        /* ПОДСКАЗКА */
         .hint {
             font-size: 0.65rem;
             color: var(--text-dim);
@@ -334,16 +364,23 @@
     <div class="nick">Sombik_Rombik</div>
 
     <div class="bio">
-        Привет, если ты это читаешь, то ты наверное решил узнать обо мне побольше. Ну так вот: в основном я сижу дома и играю в <span class="highlight-purple">Geometry Dash</span> и редко в <span class="highlight-orange">Terraria</span> а еще я иногда играю в Backrooms escape together но я его прошел на нормальной сложности и на чистилище, ну или делаю какой-нибудь уровень в <span class="highlight-purple">Backrooms</span>. Сейчас мне <span class="highlight-orange">13 лет</span>, и на данный момент мой самый лучший проект — это <span class="highlight-purple">Серая Гладь 809</span>.
+        Привет, если ты это читаешь, то ты наверное решил узнать обо мне побольше. Ну так вот: в основном я сижу дома и играю в <span class="highlight-purple">Geometry Dash</span> и редко в <span class="highlight-orange">Terraria</span>, ну или делаю какой-нибудь уровень в <span class="highlight-purple">Backrooms</span>. Сейчас мне <span class="highlight-orange">13 лет</span>, и на данный момент мой самый лучший проект — это <span class="highlight-purple">Серая Гладь 809</span>.
     </div>
 
     <div class="section-title">Мои творения</div>
 
-    <!-- КЛИКАБЕЛЬНАЯ ССЫЛКА НА LEVEL 809 -->
+    <!-- ССЫЛКА НА LEVEL 809 -->
     <a href="https://sombik.github.io/Level-809/" class="project-item" target="_blank">
         <span class="num">809</span>
         <small>Серая Гладь</small>
         <span class="tag">★ флагман</span>
+    </a>
+
+    <!-- НОВАЯ ССЫЛКА НА LEVEL -809 (зеркальный уровень) -->
+    <a href="https://sombik.github.io/Level-809/-809.html" class="project-item mirror" target="_blank">
+        <span class="num">-809</span>
+        <small>Вот мерзкий я</small>
+        
     </a>
 
     <div class="contact">
