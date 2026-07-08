@@ -1,4 +1,4 @@
-х<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -6,7 +6,6 @@
     <title>Sombik_Rombik — создатель Серой Глади</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz@14..32&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* ВСЕ СТИЛИ ОСТАЮТСЯ ТАКИМИ ЖЕ, КАК У ТЕБЯ */
         * {
             margin: 0;
             padding: 0;
@@ -29,6 +28,7 @@
             --blood: #c0392b;
             --gold: #d4a373;
             --cyan: #3bc5d9;
+            --ice: #8fcbdd;
             --radius: 28px;
             --transition: 0.3s ease;
         }
@@ -248,7 +248,7 @@
             border-color: rgba(212, 129, 58, 0.15);
         }
 
-        /* НОВАЯ ССЫЛКА НА -809 — зеркальный уровень */
+        /* -809 — зеркальный уровень */
         .project-item.mirror {
             border-left-color: var(--purple);
             background: rgba(171, 139, 255, 0.04);
@@ -277,6 +277,38 @@
             background: rgba(192, 57, 43, 0.15);
             color: var(--blood);
             border-color: rgba(192, 57, 43, 0.15);
+        }
+
+        /* НОВЫЙ СТИЛЬ ДЛЯ 809.8 — ЛЁД */
+        .project-item.ice {
+            border-left-color: var(--ice);
+            background: rgba(143, 203, 221, 0.04);
+        }
+
+        .project-item.ice:hover {
+            border-left-color: var(--ice);
+            background: rgba(143, 203, 221, 0.08);
+            box-shadow: 0 0 40px rgba(143, 203, 221, 0.06);
+        }
+
+        .project-item.ice .num {
+            color: var(--ice);
+        }
+
+        .project-item.ice:hover .num {
+            color: var(--gold);
+        }
+
+        .project-item.ice .tag {
+            background: rgba(143, 203, 221, 0.12);
+            color: var(--ice);
+            border-color: rgba(143, 203, 221, 0.08);
+        }
+
+        .project-item.ice:hover .tag {
+            background: rgba(143, 203, 221, 0.15);
+            color: var(--gold);
+            border-color: rgba(143, 203, 221, 0.15);
         }
 
         .contact {
@@ -364,22 +396,29 @@
     <div class="nick">Sombik_Rombik</div>
 
     <div class="bio">
-        Привет, если ты это читаешь, то ты наверное решил узнать обо мне побольше. Ну так вот: в основном я сижу дома и играю в <span class="highlight-purple">Geometry Dash</span> и редко в <span class="highlight-orange">Terraria</span>, ну или делаю какой-нибудь уровень в <span class="highlight-purple">Backrooms</span>. Сейчас мне <span class="highlight-orange">13 лет</span>, и на данный момент мой самый лучший проект — это <span class="highlight-purple">Серая Гладь 809</span>. А еще я пришел Backrooms escape together на сложности Чистилище.
+        Привет, если ты это читаешь, то ты наверное решил узнать обо мне побольше. Ну так вот: в основном я сижу дома и играю в <span class="highlight-purple">Geometry Dash</span> и редко в <span class="highlight-orange">Terraria</span>, ну или делаю какой-нибудь уровень в <span class="highlight-purple">Backrooms</span>. Сейчас мне <span class="highlight-orange">13 лет</span>, и на данный момент мой самый лучший проект — это <span class="highlight-purple">Серая Гладь 809</span>. А еще я прошел Backrooms escape together на сложности Чистилище.
     </div>
 
     <div class="section-title">Мои творения</div>
 
-    <!-- ССЫЛКА НА LEVEL 809 -->
+    <!-- LEVEL 809 -->
     <a href="https://sombik.github.io/Level-809/" class="project-item" target="_blank">
         <span class="num">809</span>
         <small>Серая Гладь</small>
         <span class="tag">★ флагман</span>
     </a>
 
-    <!-- НОВАЯ ССЫЛКА НА LEVEL -809 (зеркальный уровень) -->
+    <!-- LEVEL -809 (зеркальный уровень) -->
     <a href="https://sombik.github.io/-809/" class="project-item mirror" target="_blank">
         <span class="num">-809</span>
         <small>Кирпичный рай</small>
+        
+    </a>
+
+    <!-- НОВЫЙ LEVEL 809.8 (подуровень) -->
+    <a href="https://sombik.github.io/809.8/" class="project-item ice" target="_blank">
+        <span class="num">809.8</span>
+        <small>Последний лёд</small>
         
     </a>
 
@@ -388,7 +427,7 @@
         <a href="mailto:sombik809@gmail.com">sombik809@gmail.com</a>
     </div>
 
-    
+    <div class="hint">✦ кликни на уровень, чтобы войти ✦</div>
 
 </div>
 
